@@ -55,6 +55,31 @@
       .nav-links a:hover {
         color: #ffffff;
       }
+  /* Navigation Menu Styles */
+  .nav-menu {
+    background-color: #333;
+    overflow: hidden;
+  }
+
+  .nav-menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .nav-menu a:hover {
+    background-color: #575757;
+  }
+
+  .nav-menu a.active {
+    background-color: #04AA6D;
+  }
+</style>
+
     </style>
 </head>
 <body>
@@ -76,6 +101,15 @@
 <p></p><footer>
   <p>&copy; 2025 Kura Uta Presets Hub. All rights reserved.</p>
 </footer>
+<!-- Navigation Menu -->
+<div class="nav-menu">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">contact</a>
+  <a href="products.html">products</a>
+  <a href="contact.html">Contact</a>
+</div>
+
 
 </body>
 </html>
