@@ -1,6 +1,9 @@
-<html>
-<head> 
-    <title>Contact </title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
           margin: 0;
@@ -18,150 +21,126 @@
   font-family: 'Segoe UI', sans-serif;
   min-height: 100vh;
 }
-        nav {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 1rem 2rem;
-          background-color: #000000;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: #181818;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-        .logo-placeholder {
-          width: 120px;
-          height: 40px;
-          background-color: #ddd;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 0.8rem;
-          color: #666;
-          border-radius: 4px;
+        .navbar .logo {
+            font-weight: bold;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
         }
-        .nav-links {
-          display: flex;
-          gap: 2rem;
+        .navbar .nav-links {
+            display: flex;
+            gap: 1.5rem;
         }
-        .nav-links a {
-          text-decoration: none;
-          color: #333;
-          font-weight: 500;
-          transition: color 0.3s;
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        .nav-links a:hover {
-          color: #007acc;
+        .navbar .nav-links a:hover {
+            color: #ffb347;
         }
-         /* Navigation Menu Styles */
-  .nav-menu {
-    background-color: #333;
-    overflow: hidden;
-  }
-
-  .nav-menu a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-
-  .nav-menu a:hover {
-    background-color: #575757;
-  }
-
-  .nav-menu a.active {
-    background-color: #ff3c00;
-  }
-      </style>
+        .footer {
+            background: #181818;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 40px;
+            font-size: 0.95rem;
+        }
+        .contact-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+        }
+        .contact-container h2 {
+            margin-top: 0;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            margin-bottom: 10px;
+        }
+        .contact-form button {
+            background: #ffb347;
+            color: #222;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #ffa500;
+        }
+        .map-container {
+            margin: 30px 0 0 0;
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 8px rgba(0,0,0,0.08);
+        }
+    </style>
 </head>
 <body>
-   <header>
- <nav><a href="index.html">Home</a>
-<a href="about.html">about</a>
-<a href="products.html">product</a>
-<a href="enquiry.html">enquiry</a>
-<a href="contact.html">contact</a></nav></header>
-<p>For more information contact us on:</br></p>
-<p align="left"><strong>Whatsapp:+27764019179          Calls:+27608498471          Email:kumsankukwana@gmail.com</strong>
-  <script>
-    // Kura Uta Universal Website Script (No HTML Changes Needed)
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      // 1. Shopping Cart System
-      let cart = JSON.parse(localStorage.getItem('kura-cart')) || [];
-      
-      // Create cart icon if it doesn't exist
-      if (!document.getElementById('cart-icon')) {
-        const cartIcon = document.createElement('div');
-        cartIcon.id = 'cart-icon';
-        cartIcon.innerHTML = '🛒 <span id="cart-count">' + cart.length + '</span>';
-        cartIcon.style.cssText = 'position:fixed;top:20px;right:20px;z-index:1000;background:#000;color:#fff;padding:10px;cursor:pointer;';
-        document.body.prepend(cartIcon);
-      }
-    
-      // Update cart display
-      function updateCart() {
-        localStorage.setItem('kura-cart', JSON.stringify(cart));
-        document.getElementById('cart-count').textContent = cart.length;
-      }
-    
-      // 2. Product Handling
-      document.addEventListener('click', function(e) {
-        // Add to cart functionality
-        if (e.target.textContent && e.target.textContent.toLowerCase().includes('add to cart')) {
-          const productContainer = e.target.closest('.product, section, article, div');
-          const productName = productContainer ? 
-            (productContainer.querySelector('h1, h2, h3') || {}).textContent || 'Preset' : 
-            'Preset';
-          
-          const priceMatch = e.target.textContent.match(/\$\d+(\.\d{2})?/);
-          const productPrice = priceMatch ? parseFloat(priceMatch[0].slice(1)) : 19.99;
-          
-          const productImage = productContainer ? 
-            (productContainer.querySelector('img') || {}).src || '' : 
-            '';
-          
-          cart.push({
-            name: productName,
-            price: productPrice,
-            image: productImage
-          });
-          
-          updateCart();
-          alert('Added ' + productName + ' to cart!');
-        }
-        
-        // Lightbox functionality
-        if (e.target.tagName === 'IMG' && e.target.src && e.target.src.includes('product')) {
-          const lightbox = document.createElement('div');
-          lightbox.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:999;cursor:pointer;';
-          lightbox.innerHTML = '<img src="' + e.target.src + '" style="max-width:90%;max-height:90%">';
-          lightbox.onclick = function() { this.remove(); };
-          document.body.appendChild(lightbox);
-        }
-      });
-    
-      // 3. Form Validation
-      document.querySelectorAll('form').forEach(function(form) {
-        form.addEventListener('submit', function(e) {
-          let isValid = true;
-          const requiredFields = this.querySelectorAll('input[required], textarea[required], select[required]');
-          
-          requiredFields.forEach(function(field) {
-            if (!field.value.trim()) {
-              field.style.border = '1px solid red';
-              isValid = false;
-            }
-          });
-          
-          if (!isValid) {
-            e.preventDefault();
-            alert('Please fill in all required fields!');
-          }
-        });
-      });
-    });
-    </script>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Kura Uta Presets</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="products.html">Products</a>
+                <a href="enquiry.html">Enquiry</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p>For more information contact us on:</p>
+            <strong>Whatsapp: +27764019179 &nbsp; | &nbsp; Calls: +27608498471 &nbsp; | &nbsp; Email: kumsankukwana@gmail.com</strong>
+        </div>
+        <form id="contact-form" class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.019073274507!2d28.04730531502719!3d-26.20410298342716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9509b1b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sJohannesburg%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1710000000000!5m2!1sen!2sza"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <footer class="footer">
+        &copy; 2025 Kura Uta Presets Hub. All rights reserved. | Designed by Kura Uta Team
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
